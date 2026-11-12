@@ -6,10 +6,7 @@ let chickenSize = 40;
 
 let gameOver = false;
 
-let carmiddle = 0;
-let cartop = 10;
-let wheel1 = 15;
-let wheel2 = 70;
+let car1 = 0;
 
 let carmiddle2 = 0;
 let cartop2 = 10;
@@ -30,6 +27,7 @@ let chickenX = 450;
 let chickenY = 660;
 function setup() {
   createCanvas(900, 700);
+  frameRate(4);
 }
 
 function checkCollision(carX, carY, carW, carH) {
@@ -61,14 +59,8 @@ function draw() {
 
 
   background("lightgreen");
-  carmiddle = carmiddle + 30;
-  if (carmiddle >= 900) carmiddle = 0;
-  cartop = cartop + 30;
-  if (cartop >= 900) cartop = 0;
-  wheel1 = wheel1 + 30;
-  if (wheel1 >= 900) wheel1 = 0;
-  wheel2 = wheel2 + 30;
-  if (wheel2 >= 900) wheel2 = 0;
+  car1 = car1 + 30;
+  if (car1 >= 900) car1 = 0;
 
   carmiddle2 = carmiddle2 + 9;
   if (carmiddle2 >= 900) carmiddle2 = 0;
@@ -105,27 +97,18 @@ function draw() {
   for (let i = 0; i < n; i++) {
     let x = startX + xstep * i;
     rect(x, 130, 20, 10);
-  }
-  for (let i = 0; i < n; i++) {
-    let x = startX + xstep * i;
     rect(x, 280, 20, 10);
-  }
-  for (let i = 0; i < n; i++) {
-    let x = startX + xstep * i;
     rect(x, 430, 20, 10);
-  }
-  for (let i = 0; i < n; i++) {
-    let x = startX + xstep * i;
     rect(x, 580, 20, 10);
   }
 
   fill("orange");
-  rect(carmiddle, 130, 100, 20);
+  rect(car1, 130, 100, 20);
   fill("lightblue");
-  rect(cartop, 110, 60, 20);
+  rect(car1+10, 110, 60, 20);
   fill(10);
-  circle(wheel1, 150, 25);
-  circle(wheel2, 150, 25);
+  circle(car1+15, 150, 25);
+  circle(car1+70, 150, 25);
 
   fill("orange");
   rect(carmiddle2, 280, 100, 20);
@@ -154,7 +137,7 @@ function draw() {
   
 
   if (
-    checkCollision(carmiddle, 110, 100, 40) ||
+    checkCollision(car1, 110, 100, 40) ||
     checkCollision(carmiddle2, 260, 100, 40) ||
     checkCollision(carmiddle3, 410, 100, 40) ||
     checkCollision(carmiddle4, 560, 100, 40)
