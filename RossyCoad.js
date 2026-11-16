@@ -54,12 +54,10 @@ function draw() {
 
   car2 = car2 + 9;
   if (car2 >= 900) car2 = 0;
-  
 
   car3 = car3 + 6;
   if (car3 >= 900) car3 = 0;
  
-
   car4 = car4 + 8;
   if (car4 >= 900) car4 = 0;
   
